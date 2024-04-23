@@ -51,41 +51,34 @@
     <ErrorReport>prompt</ErrorReport>
     <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManagedAssembliesPath>..\SIT-Mod-Ports\References\</ManagedAssembliesPath>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony, Version=2.9.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>F:\SPT-AKI-DEV\BepInEx\core\0Harmony.dll</HintPath>
-    </Reference>
-    <Reference Include="aki-singleplayer">
-      <HintPath>F:\SPT-AKI-DEV\BepInEx\plugins\spt\aki-singleplayer.dll</HintPath>
-    </Reference>
-    <Reference Include="Aki.Common">
-      <HintPath>F:\SPT-AKI-DEV\EscapeFromTarkov_Data\Managed\Aki.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Aki.Reflection, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>F:\SPT-AKI-DEV\EscapeFromTarkov_Data\Managed\Aki.Reflection.dll</HintPath>
-    </Reference>
-    <Reference Include="aki_PrePatch">
-      <HintPath>F:\SPT-AKI-DEV\BepInEx\patchers\aki_PrePatch.dll</HintPath>
+      <HintPath>$(ManagedAssembliesPath)\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>F:\SPT-AKI-DEV\EscapeFromTarkov_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>$(ManagedAssembliesPath)\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="BepInEx, Version=5.4.21.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>F:\SPT-AKI-DEV\BepInEx\core\BepInEx.dll</HintPath>
+      <HintPath>$(ManagedAssembliesPath)\BepInEx.dll</HintPath>
     </Reference>
     <Reference Include="Comfort, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>F:\SPT-AKI-DEV\EscapeFromTarkov_Data\Managed\Comfort.dll</HintPath>
+      <HintPath>$(ManagedAssembliesPath)\Comfort.dll</HintPath>
     </Reference>
     <Reference Include="DissonanceVoip, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>F:\SPT-AKI-DEV\EscapeFromTarkov_Data\Managed\DissonanceVoip.dll</HintPath>
+      <HintPath>$(ManagedAssembliesPath)\DissonanceVoip.dll</HintPath>
     </Reference>
     <Reference Include="Sirenix.Serialization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="StayInTarkov">
+      <HintPath>..\SIT-Mod-Ports\References\StayInTarkov.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -96,23 +89,23 @@
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>F:\SPT-AKI-DEV\EscapeFromTarkov_Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>$(ManagedAssembliesPath)\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>F:\SPT-AKI-DEV\EscapeFromTarkov_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>$(ManagedAssembliesPath)\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.IMGUIModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>F:\SPT-AKI-DEV\EscapeFromTarkov_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+      <HintPath>$(ManagedAssembliesPath)\UnityEngine.IMGUIModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.InputLegacyModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>F:\SPT-AKI-DEV\EscapeFromTarkov_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+      <HintPath>$(ManagedAssembliesPath)\UnityEngine.InputLegacyModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TextRenderingModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>F:\SPT-AKI-DEV\EscapeFromTarkov_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+      <HintPath>$(ManagedAssembliesPath)\UnityEngine.TextRenderingModule.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -132,13 +125,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetPath)" "F:\SPT-AKI-DEV\BepInEx\plugins\$(TargetName).dll"
-
-if $(ConfigurationName) == Debug (
-    copy "$(TargetDir)$(TargetName).pdb" "F:\SPT-AKI-DEV\BepInEx\plugins\$(TargetName).pdb"
-) else (
-    del "F:\SPT-AKI-DEV\BepInEx\plugins\$(TargetName).pdb"
-)
-</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>

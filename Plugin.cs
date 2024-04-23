@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-using Aki.Reflection.Patching;
+using StayInTarkov;
 using BepInEx;
 using BepInEx.Configuration;
 using dvize.GTFO.Quest;

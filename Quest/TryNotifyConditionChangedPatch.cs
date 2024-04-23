@@ -1,9 +1,13 @@
 ﻿using System.Reflection;
-using Aki.Reflection.Patching;
+using StayInTarkov;
 using Comfort.Common;
 using EFT;
 using HarmonyLib;
 using UnityEngine;
+
+// AKI = SIT
+// GClass3205 = GClass3216
+// GClass1249 = Quest
 
 namespace GTFO
 {
@@ -12,11 +16,11 @@ namespace GTFO
         protected override MethodBase GetTargetMethod()
         {
 
-            return AccessTools.Method(typeof(GClass3205), nameof(GClass3205.TryNotifyConditionChanged));
+            return AccessTools.Method(typeof(GClass3216), nameof(GClass3216.TryNotifyConditionChanged));
         }
 
         [PatchPostfix]
-        public static void Postfix(ref GClass1249 quest)
+        public static void Postfix(ref Quest quest)
         {
             if (Singleton<GameWorld>.Instance == null)
             {

@@ -6,6 +6,10 @@ using EFT.Interactive;
 using EFT.Quests;
 using HarmonyLib;
 using static EFT.Quests.ConditionCounterCreator;
+using StayInTarkov;
+
+using GClass3362 = Quests;
+using GClass3368 = Conditions;
 
 namespace GTFO
 {
@@ -50,7 +54,7 @@ namespace GTFO
             QuestObjectives = questObjectiveData;
         }
 
-        internal void UpdateQuestCompletedConditions(GClass1249 bsgQuest)
+        internal void UpdateQuestCompletedConditions(Quest bsgQuest)
         {
 #if DEBUG
             GTFOComponent.Logger.LogWarning($"Updating Completed Quest Data from BSG Quest: {bsgQuest.Id.LocalizedName()} of type {bsgQuest.QuestTypeName} \r ID: {bsgQuest.Id}");
@@ -454,7 +458,7 @@ namespace GTFO
                 if(quest.Template != null)
                 {
                     if (quest.Status == EQuestStatus.Started &&
-                    mapnameMapping[quest?.Template?.LocationId].ToLower() == Aki.SinglePlayer.Utils.InRaid.RaidChangesUtil.LocationId.ToLower())
+                    mapnameMapping[quest?.Template?.LocationId].ToLower() == StayInTarkov.AkiSupport.Singleplayer.Utils.InRaid.RaidChangesUtil.LocationId.ToLower())
                     {
 #if DEBUG
                         GTFOComponent.Logger.LogWarning("DrawQuestDropdown Quest: " + quest.Template.Name + " Status: " + quest.Status);

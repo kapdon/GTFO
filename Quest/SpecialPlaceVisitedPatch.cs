@@ -1,5 +1,5 @@
 ﻿using System.Reflection;
-using Aki.Reflection.Patching;
+using StayInTarkov;
 using Comfort.Common;
 using EFT;
 using HarmonyLib;

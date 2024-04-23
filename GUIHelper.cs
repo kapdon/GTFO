@@ -5,6 +5,8 @@ using EFT;
 using EFT.Interactive;
 using UnityEngine;
 
+using SharedGameSettingsClass = SettingsManager;
+
 namespace GTFO
 {
     public static class GUIHelper
@@ -113,7 +115,7 @@ namespace GTFO
             if (!questDisplayActive)
                 return;
 
-            if (!Aki.SinglePlayer.Utils.InRaid.RaidChangesUtil.IsScavRaid)
+            if (!StayInTarkov.AkiSupport.Singleplayer.Utils.InRaid.RaidChangesUtil.IsScavRaid)
             {
                 EnsureStyles();
 
@@ -206,7 +208,7 @@ namespace GTFO
 
         internal static void UpdateLabels()
         {
-            if (!Aki.SinglePlayer.Utils.InRaid.RaidChangesUtil.IsScavRaid)
+            if (!StayInTarkov.AkiSupport.Singleplayer.Utils.InRaid.RaidChangesUtil.IsScavRaid)
             {
                 var enabledPoints = ExtractManager.GetEnabledExfiltrationPoints();
                 SetUpdateLabelsInfo(enabledPoints, (ExfiltrationPoint point) => point.transform.position, (ExfiltrationPoint point) => point.Settings.Name.Localized());
